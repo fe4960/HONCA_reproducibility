@@ -1,0 +1,10 @@
+Astrocyte	GFAP
+Endothelial	MECOM
+Fibroblast	FHL2
+Immune	IKZF3
+Macrophage	RHBDF2
+Melanocyte	PAX3
+Microglia	KCNQ3
+Mural	ACTA2
+OPC	NXPH1
+Oligodendrocyte	RNF220

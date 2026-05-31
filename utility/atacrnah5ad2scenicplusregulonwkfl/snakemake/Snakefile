@@ -1,0 +1,707 @@
+from snakemake.utils import min_version
+min_version("8.0")
+
+include: "config.smk"
+
+rule all:
+  input:
+    f"scenicplusreguloncorrelation2subsetfeature/{bname}.txt.gz",
+    f"scenicplusrsstxt2plotrss/{bname}.pdf",
+    f"scenicplush5mu2eregulonheatmap/{bname}.pdf",
+    f"ataccistopic2runscenicpluspipeline/{bname}",
+    f"ataccistopicobject2celltopicheatmap/{bname}.{config['ataccistopicobject2celltopicheatmap']['format']}",
+    f"ataccistopicobject2runumap/{bname}.pkl",
+    f"scenicplush5mu2eregulonumap/{bname}.h5ad",
+
+rule scrnah5adsubsetsamplingbykey:
+  input:
+    atac=atac,
+    rna=rna,
+  output:
+    atac="scrnah5adsubsetsamplingbykey/{name}_atac.h5ad",
+    rna="scrnah5adsubsetsamplingbykey/{name}_rna.h5ad",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    cfg=config['scrnah5adsubsetsamplingbykey'],
+  shell:
+    """
+    atacdir=$(dirname "{output.atac}")
+    atacname=$(basename "{output.atac}" .h5ad)
+    rnadir=$(dirname "{output.atac}")
+    rnaname=$(basename "{output.rna}" .h5ad)
+
+    ## ATAC
+    CMD="scrnah5adsubsetsamplingbykey.sh"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $atacdir"
+    CMD+=" -b $atacname"
+    CMD+=" -k {params.cfg[atackey]}"
+    CMD+=" -n {params.cfg[ncell]}"
+    CMD+=" -s {params.cfg[seed]}"
+    CMD+=" -- {input.atac}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+    ## RNA
+    CMD="scrnah5adsubsetsamplingbykey.sh"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $rnadir"
+    CMD+=" -b $rnaname"
+    CMD+=" -k {params.cfg[rnakey]}"
+    CMD+=" -n {params.cfg[ncell]}"
+    CMD+=" -s {params.cfg[seed]}"
+    CMD+=" -- {input.rna}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule scrnah5adduplicateobs:
+  input:
+    atac="scrnah5adsubsetsamplingbykey/{name}_atac.h5ad",
+    rna="scrnah5adsubsetsamplingbykey/{name}_rna.h5ad",
+  output:
+    atac="scrnah5adduplicateobs/{name}_atac.h5ad",
+    rna="scrnah5adduplicateobs/{name}_rna.h5ad",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    samplecfg=config['scrnah5adsubsetsamplingbykey'],
+    cfg=config['scrnah5adduplicateobs'],
+  shell:
+    """
+    atacdir=$(dirname "{output.atac}")
+    atacname=$(basename "{output.atac}" .h5ad)
+    rnadir=$(dirname "{output.atac}")
+    rnaname=$(basename "{output.rna}" .h5ad)
+
+    ## ATAC
+    CMD="scrnah5adduplicateobs"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $atacdir"
+    CMD+=" -b $atacname"
+    CMD+=" -s {params.samplecfg[atackey]}"
+    CMD+=" -t {params.cfg[key]}"
+    CMD+=" -- {input.atac}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+    ## RNA
+    CMD="scrnah5adduplicateobs"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $rnadir"
+    CMD+=" -b $rnaname"
+    CMD+=" -s {params.samplecfg[rnakey]}"
+    CMD+=" -t {params.cfg[key]}"
+    CMD+=" -- {input.rna}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule scrnah5adobscolumn2strreplace:
+  input:
+    atac="scrnah5adduplicateobs/{name}_atac.h5ad",
+    rna="scrnah5adduplicateobs/{name}_rna.h5ad",
+  output:
+    atac="scrnah5adobscolumn2strreplace/{name}_atac.h5ad",
+    rna="scrnah5adobscolumn2strreplace/{name}_rna.h5ad",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    obscfg=config['scrnah5adduplicateobs'],
+    cfg=config['scrnah5adobscolumn2strreplace'],
+  shell:
+    """
+    atacdir=$(dirname "{output.atac}")
+    atacname=$(basename "{output.atac}" .h5ad)
+    rnadir=$(dirname "{output.atac}")
+    rnaname=$(basename "{output.rna}" .h5ad)
+
+    ## ATAC
+    CMD="scrnah5adobscolumn2strreplace"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $atacdir"
+    CMD+=" -b $atacname"
+    CMD+=" -c {params.obscfg[key]}"
+    CMD+=" -p {params.cfg[pattern]}"
+    CMD+=" -r {params.cfg[replace]}"
+    CMD+=" -- {input.atac}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+    ## RNA
+    CMD="scrnah5adobscolumn2strreplace"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $rnadir"
+    CMD+=" -b $rnaname"
+    CMD+=" -c {params.obscfg[key]}"
+    CMD+=" -p {params.cfg[pattern]}"
+    CMD+=" -r {params.cfg[replace]}"
+    CMD+=" -- {input.rna}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule atacpeakset2cistopicmodel:
+  input:
+    atac="scrnah5adobscolumn2strreplace/{name}_atac.h5ad",
+  output:
+    outfile="atacpeakset2cistopicmodel/{name}_{ntopic}_model.pbz2",
+    objfile="atacpeakset2cistopicmodel/{name}_{ntopic}_object.pbz2",
+  wildcard_constraints:
+    name="[^/]+",
+    ntopic="[0-9]+",
+  params:
+    cfg=config['atacpeakset2cistopicmodel'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="atacpeakset2cistopicmodel"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}_{wildcards.ntopic}"
+    CMD+=" -n {wildcards.ntopic}"
+    CMD+=" -B {params.cfg[blacklist]}"
+    CMD+=" -t {params.cfg[numthreads]}"
+    CMD+=" -m {params.cfg[mallet]}"
+    CMD+=" -M {params.cfg[memory]}"
+    CMD+=" -i {params.cfg[niter]}"
+    CMD+=" -s {params.cfg[seed]}"
+    CMD+=" --alpha {params.cfg[alpha]}"
+    CMD+=" --eta {params.cfg[eta]}"
+
+    if [ "{params.cfg[filterpeakset]}" == "True" ]
+    then
+      CMD+=" -f"
+    fi
+
+    CMD+=" -- {input.atac}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule ataccombinecistopicmodel2evaluate:
+  input:
+    models=lambda wildcards: expand(
+      "atacpeakset2cistopicmodel/{name}_{ntopic}_model.pbz2",
+      name=wildcards.name,
+      ntopic=config['atacpeakset2cistopicmodel']['ntopics'],
+      )
+  output:
+    outfile="ataccombinecistopicmodel2evaluate/{name}.pbz2",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    cfg=config['ataccombinecistopicmodel2evaluate'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="ataccombinecistopicmodel2evaluate"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -- {input.models}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule ataccistopicobject2addldamodel:
+  input:
+    objfile=lambda wildcards: expand(
+      "atacpeakset2cistopicmodel/{name}_{ntopic}_object.pbz2",
+      name=wildcards.name,
+      ntopic=config['atacpeakset2cistopicmodel']['ntopics'][0]
+      ),
+    bestmodel="ataccombinecistopicmodel2evaluate/{name}.pbz2",
+  output:
+    outfile="ataccistopicobject2addldamodel/{name}.pkl",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    cfg=config['ataccistopicobject2addldamodel'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="ataccistopicobject2addldamodel"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -m {input.bestmodel}"
+    CMD+=" -- {input.objfile}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule ataccistopicobject2celltopicheatmap:
+  input:
+    infile="ataccistopicobject2addldamodel/{name}.pkl",
+  output:
+    outfile=f"ataccistopicobject2celltopicheatmap/{{name}}.{config['ataccistopicobject2celltopicheatmap']['format']}"
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    obscfg=config['scrnah5adduplicateobs'],
+    cfg=config['ataccistopicobject2celltopicheatmap'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="ataccistopicobject2celltopicheatmap"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -l {params.obscfg[key]}"
+    CMD+=" -W {params.cfg[width]}"
+    CMD+=" -H {params.cfg[height]}"
+    CMD+=" -f {params.cfg[format]}"
+    CMD+=" -- {input.infile}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule ataccistopicobject2runumap:
+  input:
+    infile="ataccistopicobject2addldamodel/{name}.pkl",
+  output:
+    outfile="ataccistopicobject2runumap/{name}.pkl",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    obscfg=config['scrnah5adduplicateobs'],
+    cfg=config['ataccistopicobject2runumap'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="ataccistopicobject2runumap"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -l {params.obscfg[key]}"
+
+    for l in {params.cfg[label]}
+    do
+      CMD+=" -l $l"
+    done
+
+    CMD+=" -W {params.cfg[width]}"
+    CMD+=" -H {params.cfg[height]}"
+    CMD+=" -f {params.cfg[format]}"
+    CMD+=" -- {input.infile}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule ataccistopicobject2regionsets:
+  input:
+    infile="ataccistopicobject2addldamodel/{name}.pkl",
+  output:
+    outfile=directory("ataccistopicobject2regionsets/{name}_region_sets"),
+    done="ataccistopicobject2regionsets/{name}.done",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    obscfg=config['scrnah5adduplicateobs'],
+    cfg=config['ataccistopicobject2regionsets'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="ataccistopicobject2regionsets"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -l {params.obscfg[key]}"
+    CMD+=" -n {params.cfg[ntop]}"
+    CMD+=" -W {params.cfg[width]}"
+    CMD+=" -H {params.cfg[height]}"
+    CMD+=" -f {params.cfg[format]}"
+    CMD+=" -Q {params.cfg[qvalue]}"
+    CMD+=" -L {params.cfg[log2foldchange]}"
+    CMD+=" -t {params.cfg[numthreads]}"
+
+    if [ "{params.cfg[rundar]}" == "True" ]
+    then
+      CMD+=" -r"
+    fi
+
+    CMD+=" -- {input.infile}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+    touch {output.done}
+    """
+
+rule ataccistopic2runscenicpluspipeline:
+  input:
+    cistopic="ataccistopicobject2addldamodel/{name}.pkl",
+    rna="scrnah5adobscolumn2strreplace/{name}_rna.h5ad",
+    regionfolder="ataccistopicobject2regionsets/{name}_region_sets",
+    regiondone="ataccistopicobject2regionsets/{name}.done",
+  output:
+    outdir=directory("ataccistopic2runscenicpluspipeline/{name}"),
+    done="ataccistopic2runscenicpluspipeline/{name}.done",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    obscfg=config['scrnah5adduplicateobs'],
+    cfg=config['ataccistopic2runscenicpluspipeline'],
+  shell:
+    """
+    CMD="ataccistopic2runscenicpluspipeline"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d {output.outdir}"
+    CMD+=" -c {input.cistopic}"
+    CMD+=" -r {input.rna}"
+    CMD+=" -f {input.regionfolder}"
+    CMD+=" -x {params.cfg[ctxdb]}"
+    CMD+=" -m {params.cfg[demdb]}"
+    CMD+=" -i {params.cfg[motif]}"
+    CMD+=" -l {params.obscfg[key]}"
+    CMD+=" -Q {params.cfg[dem_qthr]}"
+    CMD+=" -F {params.cfg[dem_log2fcthr]}"
+    CMD+=" -g {params.cfg[genome]}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+    touch {output.done}
+    """
+
+rule mudatah5mu2unstxt:
+  input:
+    indir="ataccistopic2runscenicpluspipeline/{name}",
+    done="ataccistopic2runscenicpluspipeline/{name}.done",
+  output:
+    outdir=directory("mudatah5mu2unstxt/{name}"),
+    done="mudatah5mu2unstxt/{name}.done",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    cfg=config['mudatah5mu2unstxt'],
+  shell:
+    """
+    CMD="mudatah5mu2unstxt"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d {output.outdir}"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -- {input.indir}/scplusmdata.h5mu"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+    touch {output.done}
+    """
+
+rule scenicplush5mu2eregulonumap:
+  input:
+    indir="ataccistopic2runscenicpluspipeline/{name}",
+    done="ataccistopic2runscenicpluspipeline/{name}.done",
+  output:
+    outfile="scenicplush5mu2eregulonumap/{name}.h5ad",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    cfg=config['scenicplush5mu2eregulonumap'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="scenicplush5mu2eregulonumap"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -W {params.cfg[width]}"
+    CMD+=" -H {params.cfg[height]}"
+    CMD+=" -s {params.cfg[seed]}"
+    CMD+=" -f {params.cfg[format]}"
+
+    if [ "{params.cfg[notitle]}" == "True" ]
+    then
+      CMD+=" -t"
+    fi
+
+    CMD+=" -- {input.indir}/scplusmdata.h5mu"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule scenicplush5mu2eregulonrss:
+  input:
+    indir="ataccistopic2runscenicpluspipeline/{name}",
+    done="ataccistopic2runscenicpluspipeline/{name}.done",
+  output:
+    outfile="scenicplush5mu2eregulonrss/{name}.txt.gz",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    obscfg=config['scrnah5adduplicateobs'],
+    cfg=config['scenicplush5mu2eregulonrss'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="scenicplush5mu2eregulonrss"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -l {params.obscfg[key]}"
+    CMD+=" -- {input.indir}/scplusmdata.h5mu"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule scenicplush5mu2regulonqcpseudobulks:
+  input:
+    indir="ataccistopic2runscenicpluspipeline/{name}",
+    done="ataccistopic2runscenicpluspipeline/{name}.done",
+  output:
+    genefile="scenicplush5mu2regulonqcpseudobulks/{name}_gene.txt.gz",
+    regionfile="scenicplush5mu2regulonqcpseudobulks/{name}_region.txt.gz",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    obscfg=config['scrnah5adduplicateobs'],
+    cfg=config['scenicplush5mu2regulonqcpseudobulks'],
+  shell:
+    """
+    outdir=$(dirname "{output.genefile}")
+
+    # gene
+    CMD="scenicplush5mu2regulonqcpseudobulks"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}_gene"
+    CMD+=" -l scRNA_counts:{params.obscfg[key]}"
+    CMD+=" -k {params.cfg[modkey_gene]}"
+    CMD+=" -m {params.cfg[nsample]}"
+    CMD+=" -n {params.cfg[nbulk]}"
+    CMD+=" -s {params.cfg[seed]}"
+    CMD+=" -- {input.indir}/scplusmdata.h5mu"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+
+    # region
+    CMD="scenicplush5mu2regulonqcpseudobulks"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}_region"
+    CMD+=" -l scATAC_counts:{params.obscfg[key]}"
+    CMD+=" -k {params.cfg[modkey_region]}"
+    CMD+=" -m {params.cfg[nsample]}"
+    CMD+=" -n {params.cfg[nbulk]}"
+    CMD+=" -s {params.cfg[seed]}"
+    CMD+=" -- {input.indir}/scplusmdata.h5mu"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule scenicplusunstxt2generegionfeaturemap:
+  input:
+    indir="mudatah5mu2unstxt/{name}",
+    done="mudatah5mu2unstxt/{name}.done",
+  output:
+    outdir=directory("scenicplusunstxt2generegionfeaturemap/{name}"),
+    done="scenicplusunstxt2generegionfeaturemap/{name}.done",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    cfg=config['scenicplusunstxt2generegionfeaturemap'],
+  shell:
+    """
+    # direct file
+    directfile="{input.indir}/{wildcards.name}_direct_e_regulon_metadata.txt.gz"
+    fname=$(basename $directfile .txt.gz)
+    CMD="scenicplusunstxt2generegionfeaturemap"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d {output.outdir}"
+    CMD+=" -b $fname"
+    CMD+=" -s {params.cfg[src]}"
+    CMD+=" -t {params.cfg[target]}"
+    CMD+=" -- $directfile"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+    extendfile="{input.indir}/{wildcards.name}_extended_e_regulon_metadata.txt.gz"
+    fname=$(basename $extendfile .txt.gz)
+    CMD="scenicplusunstxt2generegionfeaturemap"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d {output.outdir}"
+    CMD+=" -b $fname"
+    CMD+=" -s {params.cfg[src]}"
+    CMD+=" -t {params.cfg[target]}"
+    CMD+=" -- $extendfile"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+
+    touch {output.done}
+    """
+
+rule scenicplusregulonpseudobulks2correlation:
+  input:
+    genefile="scenicplush5mu2regulonqcpseudobulks/{name}_gene.txt.gz",
+    regionfile="scenicplush5mu2regulonqcpseudobulks/{name}_region.txt.gz",
+    featuremapdir="scenicplusunstxt2generegionfeaturemap/{name}",
+    featuremapdone="scenicplusunstxt2generegionfeaturemap/{name}.done",
+  output:
+    outfile="scenicplusregulonpseudobulks2correlation/{name}.txt.gz",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    mapcfg=config['scenicplusunstxt2generegionfeaturemap'],
+    cfg=config['scenicplusregulonpseudobulks2correlation'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    # gene
+    CMD="scenicplusregulonpseudobulks2correlation"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -g {input.genefile}"
+    CMD+=" -r {input.regionfile}"
+    CMD+=" -m {input.featuremapdir}/{wildcards.name}_direct_e_regulon_metadata.txt.gz"
+    CMD+=" -s {params.mapcfg[src]}"
+    CMD+=" -t {params.mapcfg[target]}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule scenicplusreguloncorrelation2subsetfeature:
+  input:
+    infile="scenicplusregulonpseudobulks2correlation/{name}.txt.gz",
+    metadir="mudatah5mu2unstxt/{name}",
+    metadone="mudatah5mu2unstxt/{name}.done",
+  output:
+    outfile="scenicplusreguloncorrelation2subsetfeature/{name}.txt.gz",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    mapcfg=config['scenicplusunstxt2generegionfeaturemap'],
+    cfg=config['scenicplusreguloncorrelation2subsetfeature'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    # gene
+    CMD="scenicplusreguloncorrelation2subsetfeature"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -A {params.mapcfg[src]}"
+    CMD+=" -B {params.mapcfg[target]}"
+    CMD+=" -n {params.cfg[regulonname]}"
+    CMD+=" -m {input.metadir}/{wildcards.name}_direct_e_regulon_metadata.txt.gz"
+    CMD+=" -q {params.cfg[qthr]}"
+    CMD+=" -r {params.cfg[rhothr]}"
+    CMD+=" -c {params.cfg[region_count]}"
+    CMD+=" -- {input.infile}"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule scenicplush5mu2eregulonheatmap:
+  input:
+    indir="ataccistopic2runscenicpluspipeline/{name}",
+    done="ataccistopic2runscenicpluspipeline/{name}.done",
+  output:
+    outfile="scenicplush5mu2eregulonheatmap/{name}.pdf",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    obscfg=config['scrnah5adduplicateobs'],
+    cfg=config['scenicplush5mu2eregulonheatmap'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+
+    CMD="scenicplush5mu2eregulonheatmap"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -l {params.obscfg[key]}"
+    CMD+=" -W {params.cfg[width]}"
+    CMD+=" -H {params.cfg[height]}"
+    CMD+=" -- {input.indir}/scplusmdata.h5mu"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """
+
+rule scenicplusrsstxt2plotrss:
+  input:
+    infile="scenicplush5mu2eregulonrss/{name}.txt.gz",
+  output:
+    outfile="scenicplusrsstxt2plotrss/{name}.pdf",
+  wildcard_constraints:
+    name="[^/]+",
+  params:
+    cfg=config['scenicplusrsstxt2plotrss'],
+  shell:
+    """
+    outdir=$(dirname "{output.outfile}")
+    datafile=$outdir/{wildcards.name}.txt.gz
+    zcat {input.infile} | sed -E 's/_direct_[^[:space:]]+//g; s/_extended_[^[:space:]]+//g' | tofile.sh -o "$datafile"
+
+    CMD="scenicplusrsstxt2plotrss"
+    [ "{params.cfg[condaenv]}" != "None" ] && CMD+=" -e {params.cfg[condaenv]}"
+    CMD+=" -d $outdir"
+    CMD+=" -b {wildcards.name}"
+    CMD+=" -m {params.cfg[numcolumn]}"
+    CMD+=" -n {params.cfg[ntop]}"
+    CMD+=" -W {params.cfg[width]}"
+    CMD+=" -H {params.cfg[height]}"
+    CMD+=" -- $datafile"
+
+    echo "Start running: $CMD"
+    eval "$CMD"
+    echo "Finish running: $CMD"
+    """

@@ -1,0 +1,10 @@
+Oligodendrocyte
+OPC
+Mural
+Microglia
+Melanocyte
+Macrophage
+Immune
+Fibroblast
+Endothelial
+Astrocyte

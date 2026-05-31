@@ -1,0 +1,10 @@
+Oligodendrocyte	336687
+Astrocyte	303412
+Fibroblast	145154
+Microglia	55262
+Endothelial	25549
+Mural	23339
+OPC	15475
+Macrophage	7833
+Melanocyte	4242
+Immune	3186

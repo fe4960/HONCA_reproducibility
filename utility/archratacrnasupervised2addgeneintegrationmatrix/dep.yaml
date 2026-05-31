@@ -1,0 +1,27 @@
+conda:
+  - austintwang::r-archr
+  - bioconductor-deseq2
+  - bioconductor-rhdf5
+  - bioconductor-sparsematrixstats
+  - bioconductor-summarizedexperiment
+  - hdf5
+  - macs2
+  - r-cairo
+  - r-chromvarmotifs
+  - r-devtools
+  - r-ggplot2
+  - r-harmony
+  - r-matrix=1.6.1
+  - r-remotes
+  - r-rhandsontable
+  - r-rspectra
+  - r-seurat
+  - r-seurat=4
+  - r-seuratobject=4
+  - r-shiny
+  - r-shinythemes
+  - r-signac
+bitbucket_R:
+  - lijinbio/jlutils
+github_py:
+  - GreenleafLab/ArchR
