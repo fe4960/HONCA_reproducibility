@@ -1,0 +1,127 @@
+scrnah5adsubsetsamplingbykey:
+  condaenv: scenicplus_v1.0a2
+  atackey: celltype
+  rnakey: subclass
+  ncell: 2000
+  seed: 42
+scrnah5adduplicateobs:
+  condaenv: scenicplus_v1.0a2
+  key: _scenicplus_celltype
+atacpeakset2cistopicmodel:
+  condaenv: scenicplus_v1.0a2
+  blacklist: hg38
+  numthreads: 12
+  mallet: /dfs3b/ruic20_lab/jinl14/.sync/tools/Mallet/Mallet-202108/bin/mallet
+  memory: 200
+  ntopics:
+  - 2
+  - 5
+  - 10
+  - 15
+  - 20
+  - 25
+  - 30
+  - 35
+  - 40
+  - 45
+  - 50
+  - 55
+  - 60
+  - 65
+  - 70
+  - 75
+  - 80
+  - 85
+  - 90
+  - 95
+  - 100
+  - 105
+  - 110
+  - 115
+  - 120
+  - 125
+  - 130
+  - 135
+  - 140
+  - 145
+  - 150
+  niter: 500
+  seed: 42
+  alpha: 50
+  eta: 0.1
+  filterpeakset: true
+ataccombinecistopicmodel2evaluate:
+  condaenv: scenicplus_v1.0a2
+ataccistopicobject2addldamodel:
+  condaenv: scenicplus_v1.0a2
+ataccistopicobject2celltopicheatmap:
+  condaenv: scenicplus_v1.0a2
+  width: 10
+  height: 8
+  format: png
+ataccistopicobject2runumap:
+  condaenv: scenicplus_v1.0a2
+  width: 8
+  height: 8
+  format: png
+  label:
+  - Sample
+ataccistopicobject2regionsets:
+  condaenv: scenicplus_v1.0a2
+  ntop: 3000
+  width: 20
+  height: 20
+  format: png
+  qvalue: 0.05
+  log2foldchange: 1.5
+  numthreads: 12
+  rundar: true
+ataccistopic2runscenicpluspipeline:
+  condaenv: scenicplus_v1.0a2
+  numthreads: 24
+  ctxdb: /dfs3b/ruic20_lab/jinl14/resource/cisTarget/hg38_screen_v10_clust.regions_vs_motifs.rankings.feather
+  demdb: /dfs3b/ruic20_lab/jinl14/resource/cisTarget/hg38_screen_v10_clust.regions_vs_motifs.scores.feather
+  motif: /dfs3b/ruic20_lab/jinl14/resource/cisTarget/motifs-v10nr_clust-nr.hgnc-m0.001-o0.0.tbl
+  genome: hg38
+  dem_qthr: 0.1
+  dem_log2fcthr: 0.5
+mudatah5mu2unstxt:
+  condaenv: scenicplus_v1.0a2
+scenicplush5mu2eregulonumap:
+  condaenv: scenicplus_v1.0a2
+  width: 6
+  height: 6
+  seed: 42
+  format: png
+  notitle: false
+scenicplush5mu2eregulonrss:
+  condaenv: scenicplus_v1.0a2
+scenicplush5mu2regulonqcpseudobulks:
+  condaenv: scenicplus_v1.0a2
+  modkey_gene: direct_gene_based_AUC
+  modkey_region: direct_region_based_AUC
+  nsample: 10
+  nbulk: 100
+  seed: 42
+scenicplusunstxt2generegionfeaturemap:
+  condaenv: scenicplus_v1.0a2
+  src: Gene_signature_name
+  target: Region_signature_name
+scenicplusregulonpseudobulks2correlation:
+  condaenv: scenicplus_v1.0a2
+scenicplusreguloncorrelation2subsetfeature:
+  condaenv: scenicplus_v1.0a2
+  regulonname: eRegulon_name
+  qthr: 0.05
+  rhothr: 0.5
+  region_count: 20
+scenicplush5mu2eregulonheatmap:
+  condaenv: scenicplus_v1.0a2
+  width: 36
+  height: 12
+scenicplusrsstxt2plotrss:
+  condaenv: scenicplus_v1.0a2
+  ntop: 10
+  width: 3.5
+  height: 4
+  numcolumn: 4

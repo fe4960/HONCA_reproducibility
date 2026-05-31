@@ -1,0 +1,4 @@
+# Utilities
+
+This folder contains standalone scripts developed for specific tasks and utilized in various contexts. These scripts serve as utilities for tasks like regulon analysis, and others. The scripts for generating specific figures and tables are accessible in the [analysis](../analysis) folder of this repository.
+
