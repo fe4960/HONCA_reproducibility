@@ -1,0 +1,33 @@
+scrnah5adsubsetbyvaluecounts:
+  condaenv: scvi
+  label: sampleid
+  ncell: 10
+scrnascvih5ad:
+  condaenv: scvi
+  batchkey: sampleid
+  nlayer: 2
+  nlatent: 30
+  ntop: 2000
+  flavor: seurat
+  seed: 12345
+  epoch: 20
+  gpu: null
+  normcounts: false
+scrnascanpycombinerawcountsscvi:
+  condaenv: scvi
+  obs:
+  - _scvi_batch
+  - _scvi_labels
+  - _scvi_local_l_mean
+  - _scvi_local_l_var
+  - leiden
+  invert: true
+scrnah5ad2normscale:
+  condaenv: scvi
+  scale: false
+scrnah5adumapby:
+  condaenv: scvi
+  width: 5
+  height: 5
+  notitle: true
+  label: []

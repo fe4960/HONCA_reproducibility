@@ -1,0 +1,6 @@
+eye_QTL/scripts/2_GWAS/7downsample1.sh
+vim HCA_ON/scripts/16_general/1save_obs_general_run.sh
+HCA_ON/scripts/16_general/2h5ad2h5seurat_general_final_run.sh
+eye_QTL/scripts/2_GWAS/MAGMA/2run_MAGMA_run.sh
+HCA_ON/scripts/14_GWAS_gene/4summarize_MAGMA_result.pl
+HCA_ON/scripts/14_GWAS_gene/21group_peak_bed.sh

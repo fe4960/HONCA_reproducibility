@@ -1,0 +1,12 @@
+scrnah5adscvi2leidensbyresolution:
+  condaenv: scvi
+  label:
+  - resolution_1
+  - resolution_2
+  resolution_1:
+  - 0.2
+  resolution_2:
+  - 0.2
+  - 0.3
+  - 0.4
+  seed: 12345

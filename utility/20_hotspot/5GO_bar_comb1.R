@@ -1,0 +1,45 @@
+library(ggplot2)
+library(dplyr)
+eng="enrichr_MSigDB_Hallmark_2020"
+
+dir1="HCA_ON/data/20_hotspot/Oligodendrocyte_precursor_cell_permut_hs_min_gene_200_hvg_5000_age_m"
+#dir1="HCA_ON/data/20_hotspot/Oligodendrocyte_precursor_cell_fullcell_10kgene_hs_min_gene_200_hvg_10000_scvi_m"
+#dir1="HCA_ON/data/20_hotspot/Astrocyte_hs_min_gene_100_hvg_5000_scvi_m"
+#dir1="HCA_ON/data/20_hotspot/Oligodendrocyte_fullcell_5kgene_hs_min_gene_250_hvg_5000_scvi_m"
+
+df_all=NULL
+
+go=NULL
+
+#for( i in seq(11,12,1)){
+for(i in seq(1,5,1)){
+    file=paste0(dir1,"_",i,"_bg/",eng,".txt")
+    df=read.table(file,header=T,sep="\t")
+    df$Log10P=-log(df$Adjusted.P.value, base=10)
+
+#        df$Log10P=-log(df$P.value,base=10)
+    df1=df[c(1:5),]
+#    go=rbind(go, df1$Term)    
+    df=df[order(df$Log10P,decreasing=F),]
+    df$module=paste0("Module ",i)
+#    df_all=rbind(df_all,df)
+#}
+
+
+#p=ggplot(data=df1,aes(x=factor(Term,levels=df$Term), y=Log10P, fill=as.numeric(Log10P)))+ geom_bar(stat = "identity") + coord_flip() + labs(y="-Log10P-value",x="GO Term") + theme_minimal(base_size=20)+scale_fill_viridis_c(option = "viridis")+ggtitle(unique(df$module))
+
+
+p=ggplot(data=df1,aes(x=factor(Term,levels=df$Term), fill=Combined.Score, y=as.numeric(Log10P)))+ geom_bar(stat = "identity") + coord_flip() + labs(fill="Combined.Score",x="GO Term", y = "-Log10 P-adj") + theme_minimal(base_size=25)+scale_fill_viridis_c(option = "viridis")+ggtitle(unique(df$module))
+
+
+go=unique(df$module)
+out=paste0(dir1,"_",i,"_bg/module_",i,"_viridis_P_adj_blue.pdf")
+
+#out=paste0(dir1,"_",i,"_bg/module_",i,"_viridis.pdf")
+pdf(out,height=3,width=10)
+print(p)
+dev.off()
+
+}
+
+

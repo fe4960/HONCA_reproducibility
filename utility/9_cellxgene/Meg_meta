@@ -1,0 +1,275 @@
+Donor ID	Tissue Type	OD/OS
+MMD_22_02443	Cornea	OD
+MMD_22_02443	Peripheral	OD
+MMD_22_02443	Ciliary Muscle	OD
+MMD_22_02443	Iris	OD
+MMD_22_02443	Macular	OD
+MMD_22_02443	Sclera	OD
+MMD_22_02443	RPE Choroid Plexus	OD
+MMD_22_02443	RPE Macular	OD
+MMD_22_02443	Genotyping Sample	OD
+MMD_22_02443	Limbic Ring	OD
+MMD_22_16477	Genotyping Sample	OD
+MMD_22_16477	Optic Nerve	OD
+MMD_22_16477	Iris	OD
+MMD_22_16477	Ciliary Muscle	OD
+MMD_22_16477	Cornea	OD
+MMD_22_16477	Macular RPE	OD
+MMD_22_16477	Peripheral RPE	OD
+MMD_22_16477	Sclera	OD
+MMD_22_16477	Macular Neural Retina	OD
+MMD_22_16477	Peripheral Neural Retina	OD
+MMD_22_17017	Cornea	OD
+MMD_22_17017	Peripheral Neural Retina	OD
+MMD_22_17017	Ciliary Muscle	OD
+MMD_22_17017	Iris	OD
+MMD_22_17017	Macular Neural Retina	OD
+MMD_22_17017	Sclera	OD
+MMD_22_17017	Peripheral RPE	OD
+MMD_22_17017	Macular RPE	OD
+MMD_22_17017	Genotyping Sample	OD
+MMD_22_17017	Optic Nerve	OD
+MMD_22_16608	Genotyping Sample	OD
+MMD_22_16608	Iris	OD
+MMD_22_16608	Ciliary Muscle	OD
+MMD_22_16608	Cornea	OD
+MMD_22_16608	Macular RPE	OD
+MMD_22_16608	Peripheral RPE	OD
+MMD_22_16608	Macular Neural Retina	OD
+MMD_22_16608	Peripheral Neural Retina	OD
+MMD_22_16608	Sclera	OD
+MMD_22_16608	Optic Nerve	OD
+MMD_22_17464	Genotyping Sample	OD
+MMD_22_17464	Iris	OD
+MMD_22_17464	Ciliary Muscle	OD
+MMD_22_17464	Cornea	OD
+MMD_22_17464	Macular RPE	OD
+MMD_22_17464	Peripheral RPE	OD
+MMD_22_17464	Macular Neural Retina	OD
+MMD_22_17464	Peripheral Neural Retina	OD
+MMD_22_17464	Sclera	OD
+MMD_22_17464	Optic Nerve	OD
+MMD_22_17939	Genotyping Sample	OD
+MMD_22_17939	Iris	OD
+MMD_22_17939	Ciliary Muscle	OD
+MMD_22_17939	Cornea	OD
+MMD_22_17939	Macular RPE	OD
+MMD_22_17939	Peripheral RPE	OD
+MMD_22_17939	Macular Neural Retina	OD
+MMD_22_17939	Peripheral Neural Retina	OD
+MMD_22_17939	Sclera	OD
+MMD_22_17939	Optic Nerve	OD
+MMD_22_16860	Genotyping Sample	OS
+MMD_22_16860	Iris	OS
+MMD_22_16860	Ciliary Muscle	OS
+MMD_22_16860	Cornea	OS
+MMD_22_16860	Macular RPE	OS
+MMD_22_16860	Peripheral RPE	OS
+MMD_22_16860	Macular Neural Retina	OS
+MMD_22_16860	Peripheral Neural Retina	OS
+MMD_22_16860	Sclera	OS
+MMD_22_16860	Optic Nerve	OS
+MMD_22_13066	Genotyping Sample	OD
+MMD_22_13066	Iris	OD
+MMD_22_13066	Ciliary Muscle	OD
+MMD_22_13066	Cornea	OD
+MMD_22_13066	Macular RPE	OD
+MMD_22_13066	Peripheral RPE	OD
+MMD_22_13066	Macular Neural Retina	OD
+MMD_22_13066	Peripheral Neural Retina	OD
+MMD_22_13066	Sclera	OD
+MMD_22_13066	Optic Nerve	OD
+MMD_22_14307	Genotyping Sample	OD
+MMD_22_14307	Iris	OD
+MMD_22_14307	Ciliary Muscle	OD
+MMD_22_14307	Cornea	OD
+MMD_22_14307	Macular RPE	OD
+MMD_22_14307	Peripheral RPE	OD
+MMD_22_14307	Macular Neural Retina	OD
+MMD_22_14307	Peripheral Neural Retina	OD
+MMD_22_14307	Sclera	OD
+MMD_22_14307	Optic Nerve	OD
+MMD_22_38029	Genotyping Sample	OD
+MMD_22_38029	Iris	OD
+MMD_22_38029	Ciliary Muscle	OD
+MMD_22_38029	Cornea	OD
+MMD_22_38029	Macular RPE	OD
+MMD_22_38029	Peripheral RPE	OD
+MMD_22_38029	Macular Neural Retina	OD
+MMD_22_38029	Peripheral Neural Retina	OD
+MMD_22_38029	Sclera	OD
+MMD_22_38029	Optic Nerve	OD
+MMD_22_37089	Genotyping Sample	OD
+MMD_22_37089	Iris	OD
+MMD_22_37089	Ciliary Muscle	OD
+MMD_22_37089	Cornea	OD
+MMD_22_37089	Macular RPE	OD
+MMD_22_37089	Peripheral RPE	OD
+MMD_22_37089	Macular Neural Retina	OD
+MMD_22_37089	Peripheral Neural Retina	OD
+MMD_22_37089	Sclera	OD
+MMD_22_37089	Optic Nerve	OD
+MMD_22_18633	Genotyping Sample	OD
+MMD_22_18633	Iris	OD
+MMD_22_18633	Ciliary Muscle	OD
+MMD_22_18633	Cornea	OD
+MMD_22_18633	Macular RPE	OD
+MMD_22_18633	Peripheral RPE	OD
+MMD_22_18633	Macular Neural Retina	OD
+MMD_22_18633	Peripheral Neural Retina	OD
+MMD_22_18633	Sclera	OD
+MMD_22_18633	Optic Nerve	OD
+MMD_22_37117	Genotyping Sample	OD
+MMD_22_37117	Iris	OD
+MMD_22_37117	Ciliary Muscle	OD
+MMD_22_37117	Cornea	OD
+MMD_22_37117	Macular RPE	OD
+MMD_22_37117	Peripheral RPE	OD
+MMD_22_37117	Macular Neural Retina	OD
+MMD_22_37117	Peripheral Neural Retina	OD
+MMD_22_37117	Sclera	OD
+MMD_22_37117	Optic Nerve	OD
+MMD_22_20357	Genotyping Sample	OD
+MMD_22_20357	Iris	OD
+MMD_22_20357	Ciliary Muscle	OD
+MMD_22_20357	Cornea	OD
+MMD_22_20357	Macular RPE	OD
+MMD_22_20357	Peripheral RPE	OD
+MMD_22_20357	Macular Neural Retina	OD
+MMD_22_20357	Peripheral Neural Retina	OD
+MMD_22_20357	Sclera	OD
+MMD_22_20357	Optic Nerve	OD
+MMD_22_21878	Genotyping Sample	OD
+MMD_22_21878	Iris	OD
+MMD_22_21878	Ciliary Muscle	OD
+MMD_22_21878	Cornea	OD
+MMD_22_21878	Macular RPE	OD
+MMD_22_21878	Peripheral RPE	OD
+MMD_22_21878	Macular Neural Retina	OD
+MMD_22_21878	Peripheral Neural Retina	OD
+MMD_22_21878	Sclera	OD
+MMD_22_21878	Optic Nerve	OD
+MMD_22_25357	Genotyping Sample	OD
+MMD_22_25357	Iris	OD
+MMD_22_25357	Ciliary Muscle	OD
+MMD_22_25357	Cornea	OD
+MMD_22_25357	Macular RPE	OD
+MMD_22_25357	Peripheral RPE	OD
+MMD_22_25357	Macular Neural Retina	OD
+MMD_22_25357	Peripheral Neural Retina	OD
+MMD_22_25357	Sclera	OD
+MMD_22_25357	Optic Nerve	OD
+MMD_22_38453	Genotyping Sample	OD
+MMD_22_38453	Iris	OD
+MMD_22_38453	Ciliary Muscle	OD
+MMD_22_38453	Cornea	OD
+MMD_22_38453	Macular RPE	OD
+MMD_22_38453	Peripheral RPE	OD
+MMD_22_38453	Macular Neural Retina	OD
+MMD_22_38453	Peripheral Neural Retina	OD
+MMD_22_38453	Sclera	OD
+MMD_22_38453	Optic Nerve	OD
+MMD_22_33472	Genotyping Sample	OD
+MMD_22_33472	Iris	OD
+MMD_22_33472	Ciliary Muscle	OD
+MMD_22_33472	Cornea	OD
+MMD_22_33472	Macular RPE	OD
+MMD_22_33472	Peripheral RPE	OD
+MMD_22_33472	Macular Neural Retina	OD
+MMD_22_33472	Peripheral Neural Retina	OD
+MMD_22_33472	Sclera	OD
+MMD_22_33472	Optic Nerve	OD
+MMD_22_20372	Genotyping Sample	OD
+MMD_22_20372	Iris	OD
+MMD_22_20372	Ciliary Muscle	OD
+MMD_22_20372	Cornea	OD
+MMD_22_20372	Macular RPE	OD
+MMD_22_20372	Peripheral RPE	OD
+MMD_22_20372	Macular Neural Retina	OD
+MMD_22_20372	Peripheral Neural Retina	OD
+MMD_22_20372	Sclera	OD
+MMD_22_20372	Optic Nerve	OD
+MMD_22_32888	Genotyping Sample	OD
+MMD_22_32888	Iris	OD
+MMD_22_32888	Ciliary Muscle	OD
+MMD_22_32888	Cornea	OD
+MMD_22_32888	Macular RPE	OD
+MMD_22_32888	Peripheral RPE	OD
+MMD_22_32888	Macular Neural Retina	OD
+MMD_22_32888	Peripheral Neural Retina	OD
+MMD_22_32888	Sclera	OD
+MMD_22_32888	Optic Nerve	OD
+MMD_22_20137	Genotyping Sample	OD
+MMD_22_20137	Iris	OD
+MMD_22_20137	Ciliary Muscle	OD
+MMD_22_20137	Cornea	OD
+MMD_22_20137	Macular RPE	OD
+MMD_22_20137	Peripheral RPE	OD
+MMD_22_20137	Macular Neural Retina	OD
+MMD_22_20137	Peripheral Neural Retina	OD
+MMD_22_20137	Sclera	OD
+MMD_22_20137	Optic Nerve	OD
+MMD_D009_13	Lobe 1 RPE	OS
+MMD_D009_13	Lobe 2 RPE	OS
+MMD_D009_13	Lobe 3 RPE	OS
+MMD_D009_13	Lobe 4 RPE	OS
+MMD_D009_13	Interior Segment	OS
+MMD_D009_13	Sclera	OS
+MMD_D009_13	Optic Nerve	OS
+MMD_19_D005	Lobe 3 RPE	OS
+MMD_19_D005	Macula RPE	OS
+MMD_19_D005	Iris	OS
+MMD_19_D005	Cornea	OS
+MMD_19_D005	Sclera	OS
+MMD_19_D009	Lobe 2 RPE	OD
+MMD_19_D009	Macula RPE	OD
+MMD_19_D009	Iris	OD
+MMD_19_D009	Sclera	OD
+MMD_19_D008	Lobe 1 RPE	OS
+MMD_19_D008	Lobe 2 RPE	OS
+MMD_19_D008	Lobe 3 RPE	OS
+MMD_19_D008	Lobe 4 RPE	OS
+MMD_19_D008	Macula RPE	OS
+MMD_19_D008	Sclera	OS
+MMD_19_D008	Iris	OS
+MMD_19_D008	Cornea	OS
+MMD_19_D008	Optic Nerve	OS
+		
+		
+May 31 2023		
+		
+Donor ID	Tissue	OD/OS
+MMD_22_34032	Genotyping sample	OD
+MMD_22_34032	Optic Cup	OD
+MMD_22_34032	Iris	OD
+MMD_22_34032	CilIary Body	OD
+MMD_22_34032	Cornea	OD
+MMD_22_34032	Mac RPE	OD
+MMD_22_34032	Perph. RPE	OD
+MMD_22_34032	Sclera	OD
+MMD_22_34032	Mac Retina	OD
+MMD_22_34032	Perph. Retina	OD
+MMD_23_17738	Genotyping sample	OD
+MMD_23_17738	Optic Nerve	OD
+MMD_23_17738	Iris	OD
+MMD_23_17738	CilIary Body	OD
+MMD_23_17738	XX(No Cornea)	XX
+MMD_23_17738	Mac RPE	OD
+MMD_23_17738	Perph. RPE	OD
+MMD_23_17738	Sclera	OD
+MMD_23_17738	Mac Retina	OD
+MMD_23_17738	Perph. Retina	OD
+MMD_23_16055	Genotyping sample	OD
+MMD_23_16055	Optic Nerve	OD
+MMD_23_16055	Iris	OD
+MMD_23_16055	CilIary Body	OD
+MMD_23_16055	Cornea	OD
+MMD_23_16055	Mac RPE	OD
+MMD_23_16055	Perph. RPE	OD
+MMD_23_16055	Sclera	OD
+MMD_23_16055	Mac Retina	OD
+MMD_23_16055	Perph. Retina	OD
+MMD_23_17976	Optic Head	OS
+MMD_23_17976	Retina	OS
+MMD_23_17976	RPE	OS
+MMD_23_17976	Sclera	OS

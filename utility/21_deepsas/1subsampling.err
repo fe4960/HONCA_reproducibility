@@ -1,0 +1,8 @@
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte/clean/deepsas’: File exists
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Astrocyte/clean/deepsas’: File exists
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Fibroblast/clean/deepsas’: File exists
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte_precursor_cell/clean/deepsas’: File exists
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Endothelial_cell/clean/deepsas’: File exists
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Mural_cell/clean/deepsas’: File exists
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Microglia/clean/deepsas’: File exists
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Macrophage/clean/deepsas’: File exists

@@ -1,0 +1,18 @@
+Loading data from: /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Endothelial_cell/clean/Endothelial_cell_subclass_rmRPE_clusters.h5ad
+Total cells: 33288 | Subsample size: 30000 | Estimated max iterations: 2
+Iteration 1: Saved 30001 cells to /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Endothelial_cell/clean/deepsas/subsamples/subsample_0.h5ad
+Iteration 2: Saved 3287 cells to /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Endothelial_cell/clean/deepsas/subsamples/subsample_1.h5ad
+Subsampling completed! All files saved in /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Endothelial_cell/clean/deepsas/subsamples
+Loading data from: /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Mural_cell/clean/Mural_cell_subclass_rmRPE_clusters.h5ad
+Total cells: 16937 | Subsample size: 30000 | Estimated max iterations: 1
+Iteration 1: Saved 16937 cells to /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Mural_cell/clean/deepsas/subsamples/subsample_0.h5ad
+Subsampling completed! All files saved in /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Mural_cell/clean/deepsas/subsamples
+Loading data from: /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Microglia/clean/Microglia_subclass_sb_clean_clusters.h5ad
+Total cells: 34248 | Subsample size: 30000 | Estimated max iterations: 2
+Iteration 1: Saved 30000 cells to /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Microglia/clean/deepsas/subsamples/subsample_0.h5ad
+Iteration 2: Saved 4248 cells to /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Microglia/clean/deepsas/subsamples/subsample_1.h5ad
+Subsampling completed! All files saved in /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Microglia/clean/deepsas/subsamples
+Loading data from: /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Macrophage/clean/Macrophage_subclass_sb_clean_rmRPE_clusters.h5ad
+Total cells: 7349 | Subsample size: 30000 | Estimated max iterations: 1
+Iteration 1: Saved 7349 cells to /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Macrophage/clean/deepsas/subsamples/subsample_0.h5ad
+Subsampling completed! All files saved in /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Macrophage/clean/deepsas/subsamples

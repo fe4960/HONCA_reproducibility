@@ -1,0 +1,4 @@
+#!/bin/sh
+source ~/.condainit
+conda activate scvi
+python HCA_ON/scripts/5_refine_major/7celltype_class/1final_opc_clean_seurat_cycling_opc.py

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/dfs3b/ruic20_lab/junw42/HCA_ON/scripts/20_hotspot/3_hotspot_umap_from_JS.py", line 22, in <module>
+    hs = joblib.load(f"{dir}/{label}_hs.create_modules_{t}_{hvg}.pkl")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pub/junw42/local/miniconda/envs/hotspot/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 735, in load
+    with open(filename, "rb") as f:
+         ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/dfs3b/ruic20_lab/junw42/HCA_ON/data/20_hotspot//Oligodendrocyte_precursor_cell_permut_hs.create_modules_scvi_hvg_10000.pkl'

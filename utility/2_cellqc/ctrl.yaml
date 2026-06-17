@@ -1,0 +1,17 @@
+dropkick:
+  skip: true
+  method: multiotsu
+  numthreads: 1
+filterbycount:
+  mincount: 500
+  minfeature: 300
+  mito: 5
+doubletfinder:
+  skip: false
+  findpK: false
+  numthreads: 10
+  pK: 0.01
+scpred:
+  skip: true
+  reference: /storage/chen/home/jw29/sc_human_retina/data/single_cell/scPred/Human_retina_combined_reference_new.rds
+  threshold: 0.9

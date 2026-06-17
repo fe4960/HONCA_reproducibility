@@ -1,0 +1,13 @@
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:02,  1.24it/s] 50%|█████     | 2/4 [00:01<00:01,  1.94it/s] 75%|███████▌  | 3/4 [00:01<00:00,  2.82it/s]100%|██████████| 4/4 [00:01<00:00,  3.27it/s]100%|██████████| 4/4 [00:01<00:00,  2.65it/s]
+Traceback (most recent call last):
+  File "/dfs3b/ruic20_lab/junw42/HCA_ON/scripts/20_hotspot/3_hotspot_heatmap.py", line 82, in <module>
+    sc.pl.umap(adata, color=f"Module{x}", vmax=6, frameon=False)
+  File "/pub/junw42/local/miniconda/envs/hotspot/lib/python3.12/site-packages/scanpy/plotting/_tools/scatterplots.py", line 686, in umap
+    return embedding(adata, "umap", **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pub/junw42/local/miniconda/envs/hotspot/lib/python3.12/site-packages/scanpy/plotting/_tools/scatterplots.py", line 144, in embedding
+    basis_values = _get_basis(adata, basis)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pub/junw42/local/miniconda/envs/hotspot/lib/python3.12/site-packages/scanpy/plotting/_tools/scatterplots.py", line 1169, in _get_basis
+    raise KeyError(msg)
+KeyError: "Could not find 'umap' or 'X_umap' in .obsm"

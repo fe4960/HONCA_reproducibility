@@ -1,0 +1,111 @@
+
+                                                   / |
+                                                 /    \
+            .                                  /      |.
+            \\\                              /        |.
+              \\\                          /           `|.
+                \\\                      /              |.
+                  \                    /                |\
+                  \\#####\           /                  ||
+                ==###########>      /                   ||
+                 \\##==......\    /                     ||
+            ______ =       =|__ /__                     ||      \\\
+        ,--' ,----`-,__ ___/'  --,-`-===================##========>
+       \               '        ##_______ _____ ,--,__,=##,__   ///
+        ,    __==    ___,-,__,--'#'  ==='      `-'    | ##,-/
+        -,____,---'       \\####\\________________,--\\_##,/
+           ___      .______        ______  __    __  .______      
+          /   \     |   _  \      /      ||  |  |  | |   _  \     
+         /  ^  \    |  |_)  |    |  ,----'|  |__|  | |  |_)  |    
+        /  /_\  \   |      /     |  |     |   __   | |      /     
+       /  _____  \  |  |\  \\___ |  `----.|  |  |  | |  |\  \\___.
+      /__/     \__\ | _| `._____| \______||__|  |__| | _| `._____|
+    
+ArchR : Version 1.0.2
+For more information see our website : www.ArchRProject.com
+If you encounter a bug please report : https://github.com/GreenleafLab/ArchR/issues
+Loading Required Packages...
+	Loading Package : grid v4.3.3
+	Loading Package : gridExtra v2.3
+	Loading Package : gtools v3.9.5
+	Loading Package : gtable v0.3.6
+	Loading Package : ggplot2 v4.0.1
+	Loading Package : magrittr v2.0.3
+	Loading Package : plyr v1.8.9
+	Loading Package : stringr v1.5.1
+	Loading Package : data.table v1.15.4
+	Loading Package : matrixStats v1.4.1
+	Loading Package : S4Vectors v0.40.2
+	Loading Package : GenomicRanges v1.54.1
+	Loading Package : BiocGenerics v0.48.1
+	Loading Package : Matrix v1.6.1.1
+	Loading Package : Rcpp v1.1.0
+	Loading Package : SummarizedExperiment v1.32.0
+	Loading Package : rhdf5 v2.44.0
+Setting default number of Parallel threads to 20.
+
+Attaching package: ‘tidyr’
+
+The following objects are masked from ‘package:Matrix’:
+
+    expand, pack, unpack
+
+The following object is masked from ‘package:S4Vectors’:
+
+    expand
+
+The following object is masked from ‘package:magrittr’:
+
+    extract
+
+Successfully loaded ArchRProject!
+
+                                                   / |
+                                                 /    \
+            .                                  /      |.
+            \\\                              /        |.
+              \\\                          /           `|.
+                \\\                      /              |.
+                  \                    /                |\
+                  \\#####\           /                  ||
+                ==###########>      /                   ||
+                 \\##==......\    /                     ||
+            ______ =       =|__ /__                     ||      \\\
+        ,--' ,----`-,__ ___/'  --,-`-===================##========>
+       \               '        ##_______ _____ ,--,__,=##,__   ///
+        ,    __==    ___,-,__,--'#'  ==='      `-'    | ##,-/
+        -,____,---'       \\####\\________________,--\\_##,/
+           ___      .______        ______  __    __  .______      
+          /   \     |   _  \      /      ||  |  |  | |   _  \     
+         /  ^  \    |  |_)  |    |  ,----'|  |__|  | |  |_)  |    
+        /  /_\  \   |      /     |  |     |   __   | |      /     
+       /  _____  \  |  |\  \\___ |  `----.|  |  |  | |  |\  \\___.
+      /__/     \__\ | _| `._____| \______||__|  |__| | _| `._____|
+    
+ArchR logging to : ArchRLogs/ArchR-plotBrowserTrack-9751b5629a875-Date-2026-05-11_Time-11-56-54.867877.log
+If there is an issue, please report to github with logFile!
+2026-05-11 11:56:55.701017 : Validating Region, 0.014 mins elapsed.
+2026-05-11 11:56:55.709707 : Adding Bulk Tracks (1 of 1), 0.014 mins elapsed.
+2026-05-11 11:57:57.360003 : Adding Feature Tracks (1 of 1), 1.042 mins elapsed.
+2026-05-11 11:57:57.611865 : Adding Gene Tracks (1 of 1), 1.046 mins elapsed.
+2026-05-11 11:57:58.264714 : Plotting, 1.057 mins elapsed.
+ArchR logging successful to : ArchRLogs/ArchR-plotBrowserTrack-9751b5629a875-Date-2026-05-11_Time-11-56-54.867877.log
+Warning messages:
+1: `aes_string()` was deprecated in ggplot2 3.0.0.
+ℹ Please use tidy evaluation idioms with `aes()`.
+ℹ See also `vignette("ggplot2-in-packages")` for more information.
+ℹ The deprecated feature was likely used in the ArchR package.
+  Please report the issue to the authors. 
+2: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead.
+ℹ The deprecated feature was likely used in the ArchR package.
+  Please report the issue to the authors. 
+3: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead.
+ℹ The deprecated feature was likely used in the ArchR package.
+  Please report the issue to the authors. 
+4: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+ℹ The deprecated feature was likely used in the ArchR package.
+  Please report the issue to the authors. 
+Plotting Gtable!

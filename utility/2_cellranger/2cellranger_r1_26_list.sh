@@ -1,0 +1,1 @@
+grep -P "GSM7553420|GSM7553428|GSM7553430|GSM7553444|GSM7553445|GSM7553447|GSM7553449|GSM7553450|GSM7553452" /dfs3b/ruic20_lab/junw42/HCA_ON/data/cellranger/pub/GSE236566/fastq_paths_full > /dfs3b/ruic20_lab/junw42/HCA_ON/data/cellranger/pub/GSE236566/fastq_paths_full1

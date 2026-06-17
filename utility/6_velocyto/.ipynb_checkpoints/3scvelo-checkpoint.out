@@ -1,0 +1,41 @@
+saving figure to file /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte/clean/veloc/oligo_opc_hvg_2000_raw_new_pca_splice_unsplice.png
+Filtered out 22199 genes that are detected 20 counts (shared).
+Normalized count data: X, spliced, unspliced.
+Extracted 2000 highly variable genes.
+Logarithmized X.
+computing neighbors
+    finished (0:01:42) --> added 
+    'distances' and 'connectivities', weighted adjacency matrices (adata.obsp)
+computing moments based on connectivities
+    finished (0:00:21) --> added 
+    'Ms' and 'Mu', moments of un/spliced abundances (adata.layers)
+recovering dynamics (using 1/48 cores)
+WARNING: Unable to create progress bar. Consider installing `tqdm` as `pip install tqdm` and `ipywidgets` as `pip install ipywidgets`,
+or disable the progress bar using `show_progress_bar=False`.
+    finished (4:19:11) --> added 
+    'fit_pars', fitted parameters for splicing dynamics (adata.var)
+computing velocities
+    finished (0:02:09) --> added 
+    'velocity', velocity vectors for each individual cell (adata.layers)
+computing velocity graph (using 1/48 cores)
+    finished (0:09:10) --> added 
+    'velocity_graph', sparse matrix with cosine correlations (adata.uns)
+computing velocity embedding
+    finished (0:01:05) --> added
+    'velocity_umap', embedded velocity vectors (adata.obsm)
+saving figure to file /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte/clean/veloc/oligo_opc_hvg_2000_raw_new_pca_velocity.png
+computing terminal states
+    identified 10 regions of root cells and 2 regions of end points .
+    finished (1:34:31) --> added
+    'root_cells', root cells of Markov diffusion process (adata.obs)
+    'end_points', end points of Markov diffusion process (adata.obs)
+saving figure to file /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte/clean/veloc/oligo_opc_hvg_2000_raw_new_pca_pseudo_time.png
+computing latent time using root_cells as prior
+    finished (0:02:13) --> added 
+    'latent_time', shared time (adata.obs)
+saving figure to file /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte/clean/veloc/oligo_opc_hvg_2000_raw_new_pca_Latent_time.png
+saving figure to file /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte/clean/veloc/oligo_opc_hvg_2000_raw_new_pca_top_gene_heatmap.png
+saving figure to file /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte/clean/veloc/oligo_opc_hvg_2000_raw_new_pca_top_gene_curve.png
+ranking genes by cluster-specific likelihoods
+    finished (0:01:51) --> added 
+    'rank_dynamical_genes', sorted scores by group ids (adata.uns)

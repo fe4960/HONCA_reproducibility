@@ -1,0 +1,6 @@
+/pub/junw42/local/miniconda/envs/spatial/share/bash-completion/completions/gdalinfo: line 24: syntax error near unexpected token `<'
+/pub/junw42/local/miniconda/envs/spatial/share/bash-completion/completions/gdalinfo: line 24: `      mapfile -t COMPREPLY < <(compgen -W "$choices" --)'
+/dfs3b/ruic20_lab/junw42/HCA_ON/scripts/17_xenium/from_Tingting/get_transcript_cor.py:81: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda group: Polygon(zip(group['X'], group['Y'])))
+/dfs3b/ruic20_lab/junw42/HCA_ON/scripts/17_xenium/from_Tingting/get_transcript_cor.py:100: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda group: Polygon(zip(group['X'], group['Y'])))

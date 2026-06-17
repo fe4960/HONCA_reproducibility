@@ -1,0 +1,6 @@
+2refine_scvi_refine_run.sh
+6data_source.py
+
+#####
+HCA_ON/scripts/10_compare_SEAD/5get_h5ad_general_batch.sh
+HCA_ON/scripts/10_compare_SEAD/7refine_scvi_refine_run.sh 

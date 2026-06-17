@@ -1,0 +1,1 @@
+less /pub/junw42/proj/HCA_ON/scripts/1cellqc/ON_chen_crpath_cellqc.txt | awk '{split($2,a,"/"); print $1"\t/dfs3b/ruic20_lab/junw42/HCA_ON/data/cellranger/"a[13]}' > /pub/junw42/proj/HCA_ON/scripts/1cellqc/ON_chen_crpath_cellqc.txt_reform

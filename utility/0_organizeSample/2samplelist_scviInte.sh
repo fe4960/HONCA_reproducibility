@@ -1,0 +1,1 @@
+awk '{if($1~/GSM/){print $_"\t/dfs3b/ruic20_lab/junw42/HCA_ON/data/cellqc/pub/result/"$1".h5ad"}else{print $_"\t/dfs3b/ruic20_lab/junw42/HCA_ON/data/cellqc/pri/result/"$1".h5ad"}}' HCA_ON/data/sample_list/RNA_sample_list > HCA_ON/data/sample_list/RNA_sample_list_meta

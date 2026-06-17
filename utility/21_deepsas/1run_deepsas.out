@@ -1,0 +1,39 @@
+{'input_data_count': '/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte_precursor_cell/clean/Oligodendrocyte_precursor_cell_subclass_seurat_cycling_clusters.h5ad', 'output_dir': '/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte_precursor_cell/clean/deepsas', 'exp_name': 'exp', 'device_index': 0, 'retrain': True, 'timestamp': '', 'seed': 7, 'n_genes': 'full', 'ccc': 'type1', 'gene_set': 'full', 'emb_size': 12, 'gat_epoch': 30, 'sencell_num': 600, 'sengene_num': 200, 'sencell_epoch': 40, 'cell_optim_epoch': 50, 'learning_rate': 0.01, 'batch_id': 0}
+Outputs dir: /dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte_precursor_cell/clean/deepsas/outputs/exp
+load_data1 ...
+Number of cells: 13919
+Number of genes: 24439
+The number of cell types 6
+celltype names: ['OPC', 'MFOL', 'OPC_GLIS3+', 'COP_NFOL', 'COP_LAMA2+', 'OPC_Cycling']
+-----------  -----
+OPC          11444
+MFOL           922
+OPC_GLIS3+     694
+COP_NFOL       537
+COP_LAMA2+     216
+OPC_Cycling    106
+-----------  -----
+The number of genes in marker list：
+  SenMayo    FRIDMAN    CellAge    Cell Cycle Markers
+---------  ---------  ---------  --------------------
+      125         77        144                    11
+Total marker genes:  320
+use all genes!
+After genes dropped duplicated sengenes:  24166
+Total gene num: 24439
+cell num: 13919, gene num: 24439
+Cell-gene graph, the number of edges: 31577296
+add cell-cell edges with weights in 0 and 1...
+CCC graph, the number of edges: 48402
+device: cuda:0
+Start remove batch effect, the default batch annotation in adata.obs["Sample"] ...
+cell embedding generated!
+Do not remove batch effect ...
+gene embedding generated!
+build graph pyg
+edge index:  torch.Size([2, 31625698])
+node feature:  torch.Size([38358, 12])
+build graph pyg without edge weights ... 
+Pyg graph: Data(x=[38358, 12], edge_index=[2, 63202994], y=[38358])
+graph.is_directed(): False
+graph nx and pyg saved!

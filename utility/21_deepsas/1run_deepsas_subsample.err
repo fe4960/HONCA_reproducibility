@@ -1,0 +1,13 @@
+mkdir: cannot create directory ‘/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Oligodendrocyte/clean/deepsas//outputs’: File exists
+# 2026-03-04 11:44:32.616 [INFO] [deepsas_v1.py:45] ====== Part 1: load and process data ======
+WARNING: adata.X seems to be already log-transformed.
+# 2026-03-04 11:45:06.240 [INFO] [deepsas_v1.py:72] Part 1, data loading and processing end!
+# 2026-03-04 11:45:06.240 [INFO] [deepsas_v1.py:76] ====== Part 2: generate init embedding ======
+WARNING: adata.X seems to be already log-transformed.
+WARNING: adata.X seems to be already log-transformed.
+# 2026-03-04 11:46:36.765 [INFO] [deepsas_v1.py:163] Part 2, AE end!
+# 2026-03-04 11:46:36.765 [INFO] [deepsas_v1.py:164] ====== Part 3: GAT training ======
+# 2026-03-04 11:50:28.952 [INFO] [deepsas_v1.py:203] Part 2, train GAT end!
+# 2026-03-04 11:50:28.952 [INFO] [deepsas_v1.py:205] ====== Part 4: Contrastive learning ======
+deepsas_v1.py:335: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  gene_index=torch.tensor(sen_gene_ls)

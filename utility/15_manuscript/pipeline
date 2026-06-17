@@ -1,0 +1,36 @@
+#generate the merged h5ad from major class h5ad for UMAP and Stat 
+HCA_ON/scripts/5_refine_major/9merge_final_new_final_update.py
+
+#correct the wrong id and generate the updated h5ad including all major classes
+HCA_ON/scripts/5_refine_major/15generate_majorclass_update.py
+
+##count cell number per majorclass
+HCA_ON/scripts/7_DEG/1gene_count_per_sample_atlas.py
+HCA_ON/scripts/7_DEG/1gene_count_per_donor_atlas_general_run.sh
+HCA_ON/scripts/7_DEG/1gene_count_per_sample_atlas_new.py
+[junw42@hpc3-23-16:/dfs3b/ruic20_lab/junw42] $vim HCA_ON/scripts/7_DEG/1gene_count_per_donor_atlas_general_run.sh
+[junw42@hpc3-23-16:/dfs3b/ruic20_lab/junw42] $vim HCA_ON/scripts/7_DEG/1gene_count_per_donor_atlas_general.py
+[junw42@hpc3-23-16:/dfs3b/ruic20_lab/junw42] $vim HCA_ON/scripts/7_DEG/1gene_count_per_donor_atlas.py
+
+
+### cell proportion
+HCA_ON/scripts/7_DEG/19celltype_proportion_cell.R
+
+
+####celltype list for deg
+donor:HCA_ON/scripts/7_DEG/2celltype_exp_donor_donor_ct_run.sh
+sample:HCA_ON/scripts/7_DEG/2celltype_exp_sample_sample_run.sh
+
+HCA_ON/scripts/7_DEG/2celltype_exp_donor_major_run.sh
+
+HCA_ON/scripts/7_DEG/3norm_gene_exp_batch_run.sh
+
+HCA_ON/scripts/7_DEG/4cor_run.sh 
+HCA_ON/scripts/7_DEG/5filter_sample_run.sh
+
+HCA_ON/scripts/7_DEG/6DEG_dream_donor_sample.sh
+HCA_ON/scripts/7_DEG/6DEG_dream_donor_sample_run.sh
+/dfs3b/ruic20_lab/junw42/HCA_ON/scripts/7_DEG/6DEG_dream_donor_major_run.sh
+
+HCA_ON/scripts/7_DEG/5GO_dotplot_comb_complexheatmap_enrichr.R
+###########

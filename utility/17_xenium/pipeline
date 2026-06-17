@@ -1,0 +1,99 @@
+#combine Xenium data and also list
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul.R
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_more.R
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_more_rest.R
+
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_coembed_rpca.R
+#get cell barcode for major class
+HCA_ON/scripts/17_xenium/3extract_cell_anno_bc.R
+HCA_ON/scripts/17_xenium/3extract_cell_anno_bc_update.R
+#get major coor
+HCA_ON/scripts/17_xenium/2seurat_cluster_indi_slide_clean_spatial_coor.R
+#get major for each section rds and h5ad
+HCA_ON/scripts/17_xenium/2seurat_cluster_indi_slide_clean.R
+#get major harmony anno
+HCA_ON/scripts/17_xenium/3harmony_cluster_coembed_general.R
+HCA_ON/scripts/17_xenium/3harmony_cluster_coembed_general_plot_anno.R
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all.R
+HCA_ON/scripts/17_xenium/3harmony_cluster_coembed_general_plot_mk.R
+####scvi + harmony
+HCA_ON/scripts/17_xenium/3extract_cell_anno_bc_scvi_harmony.py
+HCA_ON/scripts/17_xenium/10scVI_harmony.py
+HCA_ON/scripts/17_xenium/1harmony_pred_cell_lr.py
+HCA_ON/scripts/17_xenium/2facet_plot_all.py
+HCA_ON/scripts/17_xenium/3harmony_cluster_coembed_general_plot_scvi.R
+BC and MG are not right.
+
+HCA_ON/scripts/17_xenium/10scVI_harmony_fibro.py
+
+##### no inte RNA + inte Xenium + harmony
+HCA_ON/scripts/17_xenium/2seurat_cluster_coembed_no_inte_ref_xenium_update.sh
+HCA_ON/scripts/17_xenium/2seurat_cluster_coembed_no_inte_ref_xenium_update_plot.sh
+HCA_ON/scripts/17_xenium/3harmony_cluster_coembed_general_plot_mk.R
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all.R
+
+HCA_ON/scripts/17_xenium/2seurat_cluster_coembed_no_inte_ref_xenium_update_fibro.sh
+HCA_ON/scripts/17_xenium/2seurat_cluster_coembed_no_inte_ref_xenium_update_fibro_plot.sh
+
+####for each cell class generate merged Xenium
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_run.sh
+
+###predict RCTD
+HCA_ON/scripts/17_xenium/7RCTD_run/1oligo.sh 
+HCA_ON/scripts/17_xenium/7RCTD_run/2fibro.sh
+HCA_ON/scripts/17_xenium/7RCTD_run/3astro.sh  
+
+####Dimplot for rtcd
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_general_anno_coemb_RCTD_oligo1.sh
+
+######plot proportion along y and dimplot
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_general_astro_rctd1_run.sh
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_general_run.sh
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all.R
+
+####xenium marker gene
+HCA_ON/scripts/17_xenium/7RCTD_mk.R
+
+#####h5ad snRNA marker gene
+HCA_ON/scripts/17_xenium/7RCTD_mk_ref.py
+
+####xenium to rds to h5ad
+HCA_ON/scripts/17_xenium/2seurat_cluster_indi_slide_clean.R
+HCA_ON/scripts/17_xenium/2seurat_cluster_indi_slide_clean_spatial_coor.R
+HCA_ON/scripts/17_xenium/2seurat_cluster_indi_slide_clean_fibro.R
+
+#####harmony anno txt for squipy
+HCA_ON/scripts/17_xenium/3harmony_cluster_coembed_general_plot_anno.R
+
+#####neigbour
+HCA_ON/scripts/17_xenium/7RCTD_anno_txt_run.sh
+HCA_ON/scripts/17_xenium/10squipy_neib_region_run.sh
+
+######cell type wise integration without harmony
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca.R
+
+#generate h5ad
+HCA_ON/scripts/17_xenium/2seurat_cluster_indi_slide_clean_run.sh
+
+
+#niche
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all_niche.R
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all_niche_indi.R
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all_niche_kmean.sh
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all_niche_kmean_detail.sh
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all_niche_kmean_detail_plot.sh
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all_niche.R
+proportion plot: HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all_niche.R
+dimplot: HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca_coor_comb_all_niche_plot.R
+#neib
+HCA_ON/scripts/17_xenium/10squipy_neib_region_run.sh
+
+2seurat_cluster_mul_coembed_rpca.R
+3harmony_cluster_coembed_general.R
+
+HCA_ON/scripts/17_xenium/2seurat_cluster_indi_slide_clean.R
+
+######
+HCA_ON/scripts/17_xenium/2seurat_cluster_mul_xenium_rpca.R
+3harmony_cluster_coembed_indi_prev_flt.R
+HCA_ON/scripts/17_xenium/3harmony_cluster_coembed_indi_prev_flt.R

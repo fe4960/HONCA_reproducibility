@@ -1,0 +1,86 @@
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/preprocessing/utils.py:705: DeprecationWarning: `log1p` is deprecated since scVelo v0.3.0 and will be removed in a future version. Please use `log1p` from `scanpy.pp` instead.
+  log1p(adata)
+/dfs3b/ruic20_lab/junw42/HCA_ON/scripts/6_velocyto/3scvelo.py:50: DeprecationWarning: Automatic neighbor calculation is deprecated since scvelo==0.4.0 and will be removed in a future version of scVelo. Please compute neighbors first with Scanpy.
+  scv.pp.moments(adata, n_pcs=30, n_neighbors=30)
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/preprocessing/moments.py:71: DeprecationWarning: `neighbors` is deprecated since scvelo==0.4.0 and will be removed in a future version of scVelo. Please compute neighbors with Scanpy.
+  neighbors(
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/preprocessing/neighbors.py:233: DeprecationWarning: Automatic computation of PCA is deprecated since scvelo==0.4.0 and will be removed in a future version of scVelo. Please compute PCA with Scanpy first.
+  _set_pca(adata=adata, n_pcs=n_pcs, use_highly_variable=use_highly_variable)
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/dfs3b/ruic20_lab/junw42/HCA_ON/scripts/6_velocyto/3scvelo.py:72: DeprecationWarning: `get_df` is deprecated since scvelo==0.4.0 and will be removed in a future version of scVelo. Please `AnnData::get_df` or Scanpy's `scanpy.get.obs_df` or `scanpy.get.var_df`.
+  df1=scv.get_df(adata, 'fit*', dropna=True).head()
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/plotting/utils.py:68: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  return isinstance(c, str) and c in data.obs.keys() and cat(data.obs[c])
+/dfs3b/ruic20_lab/junw42/HCA_ON/scripts/6_velocyto/3scvelo.py:92: DeprecationWarning: `get_df` is deprecated since scvelo==0.4.0 and will be removed in a future version of scVelo. Please `AnnData::get_df` or Scanpy's `scanpy.get.obs_df` or `scanpy.get.var_df`.
+  df = scv.get_df(adata, 'rank_dynamical_genes/names')
+/pub/junw42/local/miniconda/envs/veloc/lib/python3.10/site-packages/scvelo/core/_anndata.py:257: DeprecationWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, pd.CategoricalDtype) instead
+  if is_categorical_dtype(data.obs[key])

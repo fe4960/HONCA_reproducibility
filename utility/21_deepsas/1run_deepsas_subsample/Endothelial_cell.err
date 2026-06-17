@@ -1,0 +1,38 @@
+# 2026-03-05 19:28:07.757 [INFO] [deepsas_v1.py:47] ====== Part 1: load and process data ======
+WARNING: adata.X seems to be already log-transformed.
+# 2026-03-05 19:29:54.105 [INFO] [deepsas_v1.py:74] Part 1, data loading and processing end!
+# 2026-03-05 19:29:54.105 [INFO] [deepsas_v1.py:78] ====== Part 2: generate init embedding ======
+WARNING: adata.X seems to be already log-transformed.
+/dfs3b/ruic20_lab/junw42/software/deepsas/.venv/lib/python3.8/site-packages/scanpy/preprocessing/_combat.py:340: RuntimeWarning: divide by zero encountered in divide
+  (abs(g_new - g_old) / g_old).max(), (abs(d_new - d_old) / d_old).max()
+WARNING: adata.X seems to be already log-transformed.
+# 2026-03-05 19:31:54.415 [INFO] [deepsas_v1.py:173] Part 2, AE end!
+# 2026-03-05 19:31:54.415 [INFO] [deepsas_v1.py:174] ====== Part 3: GAT training ======
+deepsas_v1.py:219: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=(device.type == "cuda"))
+deepsas_v1.py:225: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=(device.type == "cuda")):
+# 2026-03-05 19:39:16.079 [INFO] [deepsas_v1.py:253] Part 2, train GAT end!
+# 2026-03-05 19:39:16.080 [INFO] [deepsas_v1.py:255] ====== Part 4: Contrastive learning ======
+deepsas_v1.py:385: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  gene_index=torch.tensor(sen_gene_ls)
+# 2026-03-05 20:57:08.594 [INFO] [deepsas_v1.py:47] ====== Part 1: load and process data ======
+WARNING: adata.X seems to be already log-transformed.
+# 2026-03-05 20:57:18.110 [INFO] [deepsas_v1.py:74] Part 1, data loading and processing end!
+# 2026-03-05 20:57:18.110 [INFO] [deepsas_v1.py:78] ====== Part 2: generate init embedding ======
+WARNING: adata.X seems to be already log-transformed.
+/dfs3b/ruic20_lab/junw42/software/deepsas/.venv/lib/python3.8/site-packages/scanpy/preprocessing/_combat.py:340: RuntimeWarning: divide by zero encountered in divide
+  (abs(g_new - g_old) / g_old).max(), (abs(d_new - d_old) / d_old).max()
+/dfs3b/ruic20_lab/junw42/software/deepsas/.venv/lib/python3.8/site-packages/sklearn/decomposition/_pca.py:640: RuntimeWarning: invalid value encountered in divide
+  self.explained_variance_ratio_ = self.explained_variance_ / total_var
+WARNING: adata.X seems to be already log-transformed.
+# 2026-03-05 20:58:04.004 [INFO] [deepsas_v1.py:173] Part 2, AE end!
+# 2026-03-05 20:58:04.005 [INFO] [deepsas_v1.py:174] ====== Part 3: GAT training ======
+deepsas_v1.py:219: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=(device.type == "cuda"))
+deepsas_v1.py:225: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=(device.type == "cuda")):
+# 2026-03-05 20:59:07.799 [INFO] [deepsas_v1.py:253] Part 2, train GAT end!
+# 2026-03-05 20:59:07.799 [INFO] [deepsas_v1.py:255] ====== Part 4: Contrastive learning ======
+deepsas_v1.py:385: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  gene_index=torch.tensor(sen_gene_ls)

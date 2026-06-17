@@ -1,0 +1,181 @@
+import scanpy as sc
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+import seaborn as sns
+import pandas as pd
+import matplotlib.patches as mpatches
+
+rcParams["figure.figsize"] = (5,5)
+rcParams.update({'font.size': 14})
+
+celltype="Astrocyte"
+indir=f"/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/{celltype}/"
+outdir=f"{indir}/clean"
+mk="sanes_mk"
+adata=sc.read_h5ad(f"{outdir}/{celltype}_hvg10000_epochnone_seurat_rs_0.6_clean_sb_rm0_12_15_16_merge_seed_7_scvi_trg_update_full.h5ad")
+#bname=f"{celltype}_subclass_new1"
+bname=f"{celltype}_subclass_new4_clean"
+
+#bname=f"{celltype}_subclass_new"
+adata.obs["subclass"]="Astro"
+sc.settings.figdir = f"{outdir}/figures"
+#adata1=sc.read_h5ad(f"{outdir}/{celltype}_subclass_new2_rm_clu1_8_hvg10000_epochnone_seurat_v3_rs_0.4_seed_7_clean_sb_scvi_trg.h5ad")
+
+
+#adata=adata[adata1.obs.index]
+
+#del adata.obsm["X_scVI"]
+#adata.obsm["X_scVI"]=adata1.obsm["X_scVI"]
+#del adata.obsm["X_umap"]
+#adata.obsm["X_umap"]=adata1.obsm["X_umap"]
+#del adata.uns["umap"]
+#adata.uns["umap"]=adata1.uns["umap"]
+#del adata.obs["leiden"]
+#adata.obs["leiden"]=adata1.obs["leiden"]
+
+####obs=pd.read_csv(f"{outdir}/{celltype}_res_0.1_clean_res_0.1.obs.gz",header=0, index_col=0)
+######adata.obs.loc[obs.index,"leiden1"]=obs["leiden"]
+#adata=adata[adata.obs["leiden"]!="6"]
+#dt={"0": "Astro_ON1", "2": "2", "3": "Astro_ON3",  "4": "4", "5": "Astro_ON2", "1": "Astro_ONHON","6":"Astro_ON_AFF3+", "8": "Astro_ON_DPP10+", "7":"7"}
+dt={"ret_1": "Astro_ONH1_GABBR2+","ret_0":"Astro_ONH2_PAX5+GABBR2+","ret_2":"Astro_retina1_PAX5+ME1+","ret_3":"Astro_retina2_NLGN1+","on_0":"Astro_ON1_TSHZ2+","on_3":"Astro_ON2_NR4A3+","on_2":"Astro_ONHON3_ANKUB1+","on_1":"Astro_ONHON1_SLC4A11+","on_4":"Astro_ONHON2_SLC4A11+APOE+","on_6":"Astro_ON4_TSHZ2+DPP10+", "on_5":"Astro_ON3_AFF3+"}
+#dt={"0": "Astro_ON1", "2": "Astro_ON1", "3": "Astro_ON2",  "4": "Astro_ON2", "5": "Astro_ON3", "1": "Astro_ONH2"}
+adata.obs["subclass"]=adata.obs["leiden"].replace(dt)
+
+
+#adata.obs["subclass"]=adata.obs["subclass"].cat.add_categories(["Astro_ONH","Astro_retina1","Astro_retina2","Astro_retina_NLGN1+" ,"Astro_ONH_FOS+"])
+#adata2=sc.read(f"/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Astrocyte/clean/Astrocyte_subclass_new2_ret_onh_hvg10000_epochnone_seurat_v3_rs_0.4_clean_sb_scvi_trg.h5ad")
+#adata2=sc.read(f"/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Astrocyte/clean/Astrocyte_subclass_new2_clu2_4_7_hvg10000_epochnone_seurat_v3_rs_0.4_clean_sb_kp_cluster_rs_0.4_scvi_trg.h5ad")
+#idx0=adata2.obs.loc[adata2.obs["leiden"]=="0"].index
+#idx1=adata2.obs.loc[adata2.obs["leiden"].isin(["1"])].index
+#idx2=adata2.obs.loc[adata2.obs["leiden"]=="2"].index
+#idx3=adata2.obs.loc[adata2.obs["leiden"]=="3"].index
+#idx4=adata2.obs.loc[adata2.obs["leiden"]=="4"].index
+
+#adata.obs["subclass"]=adata.obs["subclass"].cat.add_categories(["Astro_retina","Astro_ONH1"])
+#adata.obs.loc[idx1,"subclass"]="Astro_ONH"
+#adata.obs.loc[idx0,"subclass"]="Astro_retina1"
+#adata.obs.loc[idx2,"subclass"]="Astro_retina2"
+#adata.obs.loc[idx3,"subclass"]="Astro_retina_NLGN1+"
+#adata.obs.loc[idx4,"subclass"]=f"Astro_ONH_FOS+"
+
+#df=adata.obs["subclass"].value_counts()
+#ssample=df.loc[df==1].index.values
+
+#adata=adata[-adata.obs["subclass"].isin(ssample)]
+
+
+#df=adata.obs["sampleid"].value_counts()
+#ssample=df.loc[df==1].index.values
+
+#adata=adata[-adata.obs["sampleid"].isin(ssample)]
+
+
+#adata.obs["subclass"]=adata.obs.subclass.cat.remove_unused_categories()
+
+#adata.obs["sampleid"]=adata.obs.sampleid.cat.remove_unused_categories()
+
+
+
+######obs=pd.read_csv("/dfs3b/ruic20_lab/junw42/HCA_ON/data/5_refine_major/scvi/Astrocyte/clean/Astrocyte_hvg_2000_fl_seurat_v3_res_0.3_sd_7_ononh_retina_nonsb_res_0.3.obs.gz",header=0,index_col=0)
+######idx=obs[obs["leiden"]==3].index.intersection(adata.obs.index)
+######adata.obs.loc[idx,"subclass"]=f"Astro_retina"
+
+
+#######obs=pd.read_csv(f"{outdir}/{celltype}_res_1_clean_res_1.0.obs.gz",header=0, index_col=0)
+#######idx=obs[obs["leiden"]==13].index
+#########adata.obs.loc[idx,"subclass"]=f"Astro_retina_NLGN1+"
+
+#adata.obs.loc[idx,"subclass"]=f"Astro_retina"
+########idx=obs[obs["leiden"]==8].index
+#adata.obs.loc[idx,"subclass"]=f"Astro_ONH1"
+###########adata.obs.loc[idx,"subclass"]=f"Astro_retina"
+
+sc.pl.embedding(adata, basis="X_umap", color=["subclass"],legend_loc="on data", ncols=1,frameon=False,save=f'{bname}_onData.png', palette="tab20")
+sc.pl.embedding(adata, basis="X_umap", color=["subclass"],ncols=1,frameon=False,save=f'{bname}.png', palette="tab20")
+
+markers={"B cell": ["BANK1", "BLK", "BCL11A"], "Schwann cell": ["SCN7A","INSC","L1CAM","NGFR"], "T cell": ["BCL11B", "THEMIS", "IL7R", "CAMK4", "CD2"], "Astrocyte": ["AC092957.1", "DCLK1", "PAX8", "GFAP", "ALDH1L1"], "Endothelial cell": ["PTPRB", "LDB2", "VWF", "FLT1", "ANO2", "MECOM","PECAM1"], "Fibroblast": ["CLMP","BICC1","SCARA5","FHL2","DCN"], "Macrophage": ["CD163", "F13A1","MRC1", "STAB1"], "Melanocyte": ["ABCB5","PAX3","SYNPR","PMEL","GALNTL6"], "Microglia": ["MPZ","MLIP","GALNT17","PRX","CD74","CX3CR1"], "NK cell": ["KLRD1","CD247","TXK","KLRF1"], "Oligodendrocyte": ["ST18","CERCAM","TMEM144","MOBP","SH3GL3","MOG"], "Oligodendrocyte precursor cell": ["CSMD1","TNR","OPCML","SNTG1","CSMD3","OLIG2","OLIG1"], "Mular pericyte": ["RGS5","ABCC9","TRPC4"], "RPE": ["CCBE1","SLC38A11","ATP6V1C2","OTX2","BEST1","RPE65"], "Mular vascular associated smooth muscle cell": ["RGS6","MYH11","ACTA2","UNC13C"] , "Rod": "PDE6A", "Cone": "ARR3", "BC": "VSX2", "AC": "PAX6", "RGC": "RBPMS", "HC": "ONECUT1", "MG": "RLBP1"}
+
+markers1 = dict(sorted(markers.items()))
+
+known_markers={"B cell": ["DOCK2", "PTPRC", "EBF1","BCL11A"], "T cell": ["DOCK2","PTPRC","CD2","THEMIS"], "Astrocyte": ["ALDH1L1", "GFAP"], "Endothelial cell": ["FLT1","PECAM1"], "Fibroblast": ["COL1A2","DCN"], "Macrophage": ["DOCK2","PTPRC","MRC1","CD163"], "Microglia": ["DOCK2", "PTPRC","P2RY12", "ITGAM", "CD74", "CX3CR1"], "NK cell": ["DOCK2", "PTPRC", "KLRD1","KLRF1"], "Oligodendrocyte": ["MOG","MOBP"], "Oligodendrocyte precursor cell": ["OLIG1","OLIG2"], "Mular pericyte": ["TAGLN","ACTA2","TRPC4","RGS5","LAMA2"], "Mular vacular associated smooth muscle cell": ["TAGLN","ACTA2","UNC13C","RGS6","CASQ2","FGF7","SLC7A2","CLSTN2"],"Schwann cell": ["SCN7A","NCAM1","L1CAM","NGFR"], "Schwann cell myelinating": ["MPZ","PRX","MBP"], "RPE": ["MLANA","TYR","BEST1","RPE65"], "Melanocyte": ["PMEL","PAX3"], "Rod": "PDE6A", "Cone": "ARR3", "BC": "VSX2", "AC": "PAX6", "RGC": "RBPMS", "HC": "ONECUT1", "MG": "RLBP1" }
+
+known_markers1 = dict(sorted(known_markers.items()))
+
+sc.pl.dotplot(adata, markers1, groupby='subclass', dendrogram=False, save=f"{bname}_marker.png", use_raw=False)
+sc.pl.dotplot(adata, known_markers1, groupby='subclass', dendrogram=False, save=f"{bname}_known_marker.png", use_raw=False)
+
+sc.tl.dendrogram(adata, groupby='subclass', use_rep="X_scVI", use_raw=False, n_pcs=30)
+
+adata.obs[["nCount_RNA","subclass","sampleid"]].groupby(["subclass","sampleid"]).count().to_csv(f"{outdir}/{bname}_sample_number.txt",sep="\t")
+
+lis=pd.read_csv(f'{indir}/{mk}',header=None)
+dt=lis[0].values #.set_index(0).to_dict()[1]
+
+sc.pl.dotplot(adata, dt, groupby='subclass', dendrogram=True, save=f"{bname}_marker_sanes_ct.png", use_raw=False)
+
+sc.pl.violin(adata,keys=["pct_counts_mt","n_genes_by_counts", "total_counts"], groupby="subclass", rotation=75, save=f"{bname}_QC.png", multi_panel=True)
+
+plot=["race", "gender", "age_year"]
+
+for pl in plot:
+    sc.pl.embedding(adata, basis="X_umap", color=[pl],ncols=1,frameon=False,save=f'_{bname}_{pl}.png', palette="tab20")
+
+
+dt={"Chen": "lightblue", "Sanes": "blue"}
+sc.pl.embedding(adata, basis="X_umap", color=["source"],ncols=1,frameon=False,save=f'_{bname}_source.png', palette=dt)
+
+dt={"ON": "lightblue", "ONH": "blue"}
+sc.pl.embedding(adata, basis="X_umap", color=["tissue"],ncols=1,frameon=False,save=f'_{bname}_tissue.png', palette=dt)
+
+rcParams["figure.figsize"] = (12,5)
+
+
+#total=adata.obs[["nCount_RNA","subclass"]].groupby(["subclass"]).count()
+adata.obs[["nCount_RNA","source","subclass"]].groupby(["subclass","source"]).count().to_csv(f"{outdir}/{bname}_source.csv")
+df=pd.read_csv(f"{outdir}/{bname}_source.csv")
+total=df.groupby(["subclass"])["nCount_RNA"].transform("sum")
+df["nCount_RNA"]=df["nCount_RNA"]/total
+df.to_csv(f"{outdir}/{bname}_source_df.csv")
+plt.barh( df[df["source"]!="Chen"]["subclass"], df[df["source"]!="Chen"]["nCount_RNA"], color='blue' )
+plt.barh(df[df["source"]=="Chen"]["subclass"], df[df["source"]=="Chen"]["nCount_RNA"],  left=df[df["source"]!="Chen"]["nCount_RNA"], color='lightblue' )
+plt.legend(["Sanes", "Chen"])
+plt.xlabel("Cell proportion")
+plt.savefig(f"{outdir}/figures/{bname}_source.png")
+
+#top_bar = mpatches.Patch(color='darkblue', label='Sanes')
+#bottom_bar = mpatches.Patch(color='lightblue', label='Chen')
+#plt.legend(handles=[top_bar, bottom_bar])
+
+#sns_plot=sns.barplot(data=df, y="subclass", x="nCount_RNA", hue="source", dodge=True)
+#plt.xlabel("Cell proportion")
+#plt.savefig(f"{outdir}/{bname}_source.png")
+
+#bar1 = sns.barplot(x="nCount_RNA",  y="subclass", data=total, color='darkblue')
+#bar2 = sns.barplot(x="nCount_RNA", y="subclass", data=df[df["source"]!="Chen"], color='lightblue')
+
+# add legend
+#top_bar = mpatches.Patch(color='darkblue', label='Chen')
+#bottom_bar = mpatches.Patch(color='lightblue', label='Sanes')
+# show the graph
+#plt.show()
+
+
+
+df=adata.obs[["nCount_RNA","tissue","subclass"]].groupby(["subclass","tissue"]).count().to_csv(f"{outdir}/{bname}_tissue.csv")
+df=pd.read_csv(f"{outdir}/{bname}_tissue.csv")
+total=df.groupby(["subclass"])["nCount_RNA"].transform("sum")
+df["nCount_RNA"]=df["nCount_RNA"]/total
+df.to_csv(f"{outdir}/{bname}_tissue_df.csv")
+
+plt.barh( df[df["tissue"]!="ON"]["subclass"], df[df["tissue"]!="ON"]["nCount_RNA"], color='blue' )
+plt.barh(df[df["tissue"]=="ON"]["subclass"], df[df["tissue"]=="ON"]["nCount_RNA"],  left=df[df["tissue"]!="ON"]["nCount_RNA"], color='lightblue' )
+plt.legend(["ONH", "ON"])
+plt.xlabel("Cell proportion")
+plt.savefig(f"{outdir}/figures/{bname}_tissue.png")
+
+
+
+sc.tl.rank_genes_groups(adata, "subclass", method="wilcoxon", use_raw=False)
+sc.pl.rank_genes_groups_dotplot(adata, n_genes=10,  save=f'{bname}_TRG10.png', dendrogram=False)
+adata.write(f"{outdir}/{bname}.h5ad")
+

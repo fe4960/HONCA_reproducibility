@@ -1,0 +1,6 @@
+Error: package or namespace load failed for ‘enrichR’ in gzfile(file, "rb"):
+ cannot open the connection
+In addition: Warning message:
+In gzfile(file, "rb") :
+  cannot open compressed file '/dfs6/pub/junw42/local/miniconda/envs/qtl/lib/R/library/curl/Meta/nsInfo.rds', probable reason 'No such file or directory'
+Execution halted

@@ -1,0 +1,13 @@
+1.DEG
+HCA_ON/scripts/7_DEG/1gene_count_per_donor_atlas_general_run.sh
+HCA_ON/scripts/7_DEG/2celltype_exp_donor_donor.sh
+HCA_ON/scripts/7_DEG/3norm_gene_exp_batch_run.sh
+HCA_ON/scripts/7_DEG/4cor_run.sh
+HCA_ON/scripts/7_DEG/5filter_sample_run.sh
+
+#cut -d "," -f 2-5,7- /dfs3b/ruic20_lab/junw42/HCA_ON/data/7_DEG/genexp_sample_raw_atlas_meta_gsm_race_batch_sampleid | sort -u  > /dfs3b/ruic20_lab/junw42/HCA_ON/data/7_DEG/genexp_sample_raw_atlas_meta_gsm_race_batch_sampleid_donor
+cut -d "," -f 2,3,4,7,10 /dfs3b/ruic20_lab/junw42/HCA_ON/data/7_DEG/genexp_sample_raw_atlas_meta_gsm_race_batch_sampleid | sort -u  > /dfs3b/ruic20_lab/junw42/HCA_ON/data/7_DEG/genexp_sample_raw_atlas_meta_gsm_race_batch_sampleid_donor
+
+2.reformat h5ad
+HCA_ON/scripts/16_general/1save_obs_general_run.sh
+HCA_ON/scripts/16_general/2h5ad2h5seurat_general_final_run.sh

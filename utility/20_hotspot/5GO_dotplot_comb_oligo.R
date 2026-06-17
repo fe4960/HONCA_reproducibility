@@ -1,0 +1,168 @@
+library(ggplot2)
+library(dplyr)
+eng="enrichr_MSigDB_Hallmark_2020"
+
+##dir1="HCA_ON/data/20_hotspot/Oligodendrocyte_precursor_cell_permut_hs_min_gene_200_hvg_5000_age_m"
+#dir1="HCA_ON/data/20_hotspot/Oligodendrocyte_precursor_cell_fullcell_10kgene_hs_min_gene_200_hvg_10000_scvi_m"
+#dir1="HCA_ON/data/20_hotspot/Astrocyte_hs_min_gene_100_hvg_5000_scvi_m"
+dir1="HCA_ON/data/20_hotspot/Oligodendrocyte_fullcell_5kgene_hs_min_gene_250_hvg_5000_scvi_m"
+
+df_all=NULL
+
+go=NULL
+sq=c(1,4,5)
+for( i in sq){
+
+#for( i in seq(11,12,1)){
+    file=paste0(dir1,"_",i,"_bg/",eng,".txt")
+    df=read.table(file,header=T,sep="\t")
+#    df$Log10P=-log(df$Adjusted.P.value, base=10)
+
+    df$Log10P=-log(df$P.value,base=10)
+    df$module=paste0("Module ",i)
+
+    df1=df[c(1:5),]
+    df1=df1[df1$Log10P>=2,]
+ #   df1=df1[order(df1$Log10P,decreasing=F),]
+
+    go=c(go, df1$Term)   
+    df_all=rbind(df_all,df)
+}
+
+go=go[go!="Spermatogenesis"]
+df_all=df_all[(df_all$Term %in% go),]
+
+
+library(dplyr)
+library(tidyr)
+library(tibble)
+
+# define your preferred module order
+module_order <- paste0("Module ", sq)  # or your custom vector
+
+mat <- df_all %>%
+  select(module, Term, Log10P) %>%
+  mutate(module = factor(module, levels = module_order)) %>%
+  arrange(module) %>%
+  pivot_wider(
+    id_cols = module,
+    names_from = Term,
+    values_from = Log10P,
+    values_fill = 0
+  ) %>%
+  column_to_rownames("module") %>%
+  as.matrix()
+
+# row-wise z-score (optional)
+mat_scaled <- t(scale(t(mat)))
+mat_scaled[is.na(mat_scaled)] <- 0
+
+myColor <- viridis::viridis(100)
+
+# Pkatmap
+library(pheatmap)
+mat_scaled=mat_scaled[,go]
+p=pheatmap(mat_scaled,
+         scale = "none",
+         cluster_rows = FALSE,
+         cluster_cols = FALSE,
+         show_rownames = TRUE,
+	 show_colnames=TRUE,
+         color = myColor,
+         fontsize = 10)
+
+
+   out=paste0(dir1,"_all_bg_",eng,"_heatmap.pdf")
+    pdf(out,height=3,width=5.5)
+    print(p)
+    dev.off()
+
+
+################
+df_all=NULL
+go=NULL
+for( i in sq){
+#for( i in seq(11,12,1)){
+    file=paste0(dir1,"_",i,"_bg/",eng,".txt")
+    df=read.table(file,header=T,sep="\t")
+#    df$Log10P=-log(df$Adjusted.P.value, base=10)
+    df$Log10P=-log(df$P.value,base=10)
+    df$module=paste0("Module ",i)
+    df1=df[c(1:5),]
+    df1=df1[df1$Log10P>=2,]
+#    df1=df1[order(df1$Log10P,decreasing=F),]
+    go=c(go, df1$Term)    
+    df_all=rbind(df_all,df)
+}
+
+
+df_all=df_all[(df_all$Term %in% go),]
+
+library(dplyr)
+library(tidyr)
+library(tibble)
+
+# define your preferred module order
+module_order <- paste0("Module ", seq(1,7,1))  # or your custom vector
+
+mat <- df_all %>%
+  select(module, Term, Combined.Score) %>%
+  mutate(module = factor(module, levels = module_order)) %>%
+  arrange(module) %>%
+  pivot_wider(
+    id_cols = module,
+    names_from = Term,
+    values_from = Combined.Score,
+    values_fill = 0
+  ) %>%
+  column_to_rownames("module") %>%
+  as.matrix()
+
+# row-wise z-score (optional)
+mat_scaled <- t(scale(t(mat)))
+mat_scaled[is.na(mat_scaled)] <- 0
+
+myColor <- viridis::viridis(100)
+
+# Pkatmap
+library(pheatmap)
+mat_scaled=mat_scaled[,go]
+p=pheatmap(mat_scaled,
+         scale = "none",
+         cluster_rows = FALSE,
+         cluster_cols = FALSE,
+         show_rownames = TRUE,
+	 show_colnames=TRUE,
+         color = myColor,
+         fontsize = 10)
+
+
+   out=paste0(dir1,"_all_bg_",eng,"_heatmap_Combined_Score.pdf")
+    pdf(out,height=3,width=5.5)
+    print(p)
+    dev.off()
+
+
+
+    p=ggplot(data=df_all,aes(x=factor(Term,levels=df$Term), y=Log10P, fill=as.numeric(Log10P)))+ geom_bar(stat = "identity") + coord_flip() + labs(y="-Log10P-value",x="GO Term") + theme_minimal(base_size=20)+scale_fill_viridis_c(option = "viridis")+facet_wrap(~module,ncol=4, scales="free_x")
+    out=paste0(dir1,"_all_bg_",eng,"_bar_viridis.pdf")
+    pdf(out,height=7,width=10)
+    print(p)
+    dev.off()
+
+
+
+p <- ggplot(df_all, aes(y=module,x=Term)) + geom_point(aes(size=Log10P),color="blue")+theme(
+    axis.line=element_line(colour="black")
+    ,panel.background = element_rect(fill="transparent") 
+    , plot.background = element_blank()
+    , panel.grid.major = element_blank()
+    , panel.grid.minor = element_blank()
+    , text=element_text(size=20))+xlab("")+ylab("")+scale_size_continuous(name=expression(paste('-',log[10],'P')),range=c(1,10),limits = c(0, 10))+coord_flip() #+scale_color_viridis_c(option = "viridis", limits = c(0, 10))
+
+    out=paste0(dir1,"_all_bg_",eng,"_dotplot_viridis.pdf")
+    pdf(out,height=7,width=10)
+    print(p)
+    dev.off()
+
+
